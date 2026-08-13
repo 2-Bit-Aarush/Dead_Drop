@@ -3,7 +3,7 @@
 ### Physical storage. Online, without the friction.
 
 <p align="center">
-  <img src="assets/3d.gif" width="800">
+  <img src="assets/3d.gif" width="820" alt="Dead Drop PCB 3D animation">
 </p>
 
 <p align="center">
@@ -11,236 +11,235 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Prototype-orange?style=for-the-badge">
-  <img src="https://img.shields.io/badge/PCB-2--Layer-black?style=for-the-badge">
-  <img src="https://img.shields.io/badge/MCU-ESP32--S3-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Storage-microSD-green?style=for-the-badge">
+  <img src="assets/boot.svg" width="760" alt="Dead Drop system status">
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/STATUS-PROTOTYPE-111827?style=flat-square">
+  <img src="https://img.shields.io/badge/PCB-2--LAYER-111827?style=flat-square">
+  <img src="https://img.shields.io/badge/MCU-ESP32--S3-111827?style=flat-square">
+  <img src="https://img.shields.io/badge/STORAGE-microSD-111827?style=flat-square">
+  <img src="https://img.shields.io/badge/EASYEDA-111827?style=flat-square">
 </p>
 
 ---
 
-## What is Dead Drop?
+## 01 — THE DEVICE
 
-**Dead Drop** is a custom-designed portable storage device built around an **ESP32-S3** and a removable microSD card.
+**Dead Drop** is a custom portable storage device built around an **ESP32-S3** and removable microSD storage.
 
 The idea is simple:
 
 > **Take something as physical and inconvenient as removable storage and give it the convenience of an online-first workflow.**
 
-Instead of treating a storage device as nothing more than a USB drive, Dead Drop is designed as a small connected hardware platform that can interact with stored data and provide information through its own interface.
+Storage, wireless connectivity, USB, local feedback and power management are integrated onto a single custom PCB.
 
-The project combines:
+No development-board stack.
 
-* removable storage
-* Wi-Fi connectivity
-* a small OLED interface
-* USB connectivity
-* dedicated power-management circuitry
-* a custom compact PCB
+No collection of breakout modules.
 
-The entire hardware platform was designed from the ground up rather than assembled from development boards.
+**One board. One device.**
+
+<p align="center">
+  <img src="assets/architecture.svg" width="850" alt="Dead Drop system architecture">
+</p>
 
 ---
 
-# The Hardware
+## 02 — THE HARDWARE
 
 <p align="center">
-  <img src="assets/dead-drop-render.png" width="850">
+  <img src="assets/Screenshot 2026-08-13 225536.png" width="850" alt="Dead Drop PCB render">
 </p>
 
-Dead Drop uses a custom **2-layer FR-4 PCB** measuring approximately:
+The current board is built around a compact, connector-driven layout:
 
-**92.33 × 41.15 mm**
 
-The board was intentionally kept compact so the finished device can approach the physical form factor expected from a portable storage device rather than looking like a conventional development board.
 
 ### Core hardware
 
-| Component                  | Purpose                                 |
-| -------------------------- | --------------------------------------- |
-| **ESP32-S3-WROOM-1-N16R8** | Main processing + wireless connectivity |
-| **MicroSD card**           | Removable local storage                 |
-| **128×32 OLED**            | Local status/interface display          |
-| **USB-A**                  | Physical host/device connectivity       |
-| **USB-C**                  | Power / connectivity                    |
-| **TPS2116DRLR**            | Power-path management                   |
-| **AP63203QWU-7**           | DC-DC power conversion                  |
-| **Tactile switch**         | User input                              |
-| **3.3 µH inductor**        | Power regulation                        |
-| **Decoupling capacitors**  | Power integrity                         |
-| **Custom PCB**             | Integrates the entire system            |
+| | |
+|---|---|
+| **MCU** | ESP32-S3-WROOM-1-N16R8 |
+| **Storage** | Removable microSD |
+| **Display** | 128×32 OLED |
+| **Wireless** | Wi-Fi + Bluetooth |
+| **USB** | USB-A + USB-C |
+| **Power** | TPS2116DRLR + AP63203QWU-7 |
+| **PCB** | 2-layer FR-4 |
+| **Dimensions** | **[INSERT ACTUAL PCB DIMENSIONS]** |
+
+> **Note:** Replace the dimensions above with the actual X × Y measurement from EasyEDA. The new PCB screenshots do not expose the physical dimensions.
 
 ---
 
-# Why Build a Custom PCB?
+## 03 — WHY CUSTOM?
 
-The first instinct for a project like this would be to combine:
+A prototype can be built from development boards:
 
-```text
-ESP32 Dev Board
-       +
-SD Card Module
-       +
-OLED Module
-       +
-USB Module
-       +
-Power Module
-```
+<p align="center">
+  <img src="assets/why-custom.svg" width="850" alt="Dead Drop PCB overview">
+</p>
 
-That works for a prototype.
 
-It doesn't make a good product.
+That works.
 
-Dead Drop instead puts the important circuitry onto a **single compact board**.
+But Dead Drop is intended to be an actual device rather than a collection of development modules.
 
-### The result
+The new PCB brings the major systems onto one board:
 
 ```text
-┌─────────────────────────────────────────────┐
-│                                             │
-│   STORAGE        POWER       USER INTERFACE │
-│      │              │               │       │
-│      ▼              ▼               ▼       │
-│   microSD ───── ESP32-S3 ─────── OLED       │
-│                   │                         │
-│                   ▼                         │
-│              Wi-Fi / USB                    │
-│                                             │
-└─────────────────────────────────────────────┘
+                 DEAD DROP
+
+      ┌──────────────────────────┐
+      │                          │
+      │      STORAGE             │
+      │          │               │
+      │      PROCESSING          │
+      │          │               │
+      │       POWER              │
+      │          │               │
+      │     CONNECTIVITY         │
+      │                          │
+      └──────────────────────────┘
 ```
 
-This reduces:
+The goal isn't simply making a smaller prototype.
 
-* wiring
-* board count
-* physical size
-* unnecessary connectors
-* assembly complexity
-
-and makes the device much closer to an actual piece of hardware.
+It's **owning the hardware.**
 
 ---
 
-# PCB Architecture
+## 04 — PCB
 
-The board was designed around several functional zones.
+Designed from scratch in **EasyEDA**.
 
-### 01 — Storage
+<p align="center">
+  <img src="assets/pcb-scan.svg" width="850" alt="Dead Drop PCB overview">
+</p>
 
-A dedicated microSD interface provides removable local storage.
+### Current board layout
 
-The storage is intentionally kept physically accessible so the device can use standard removable media rather than locking the project to a proprietary memory solution.
+The PCB is arranged around the actual physical interfaces of the device:
 
-### 02 — Processing
+- **USB-A** — left side
+- **USB-C** — right side
+- **OLED** — upper section
+- **microSD** — accessible from the upper edge
+- **ESP32-S3** — central lower section
+- **Power circuitry** — distributed around the input/regulation area
+- **Tactile switch** — direct physical input
+- **Antenna** — kept clear at the lower edge of the ESP32 module
 
-At the center of the system is the **ESP32-S3-WROOM-1-N16R8**.
+The board uses:
 
-It provides:
+```text
+2-LAYER PCB
+FR-4
+1.6 mm
+1 oz COPPER
+BLACK SOLDER MASK
+WHITE SILKSCREEN
+```
 
-* processing
-* Wi-Fi
-* Bluetooth capabilities
-* USB functionality
-* communication with the storage subsystem
-* communication with the OLED
+**DRC — 0 REPORTED ERRORS**
 
-### 03 — Power
+---
 
-The board includes dedicated power-management circuitry rather than relying on an external regulator module.
+## 05 — POWER
+
+Power management is integrated directly into the PCB.
+
+<p align="center">
+  <img src="assets/power-flow.svg" width="850" alt="Dead Drop power path">
+</p>
 
 The power subsystem uses:
 
-* **TPS2116DRLR**
-* **AP63203QWU-7**
-* dedicated inductive/capacitive filtering
+- **TPS2116DRLR** — power-path management
+- **AP63203QWU-7** — DC-DC conversion
+- **3.3 µH inductor**
+- dedicated decoupling
 
-This keeps power conversion and distribution directly on the PCB.
-
-### 04 — User Interface
-
-A small **128×32 OLED** provides local feedback without requiring the device to be connected to another screen.
-
-A physical tactile switch provides direct user input.
-
-### 05 — Connectivity
-
-Dead Drop exposes both:
-
-* **USB-A**
-* **USB-C**
-
-This gives the hardware multiple physical interaction points while retaining wireless connectivity through the ESP32-S3.
+The power circuitry is kept close to the relevant input and regulation paths instead of being implemented as a separate module.
 
 ---
 
-# PCB Design
+## 06 — SYSTEM
 
-The PCB was designed in **EasyEDA**.
+At the center of the device is the **ESP32-S3-WROOM-1-N16R8**.
+
+It provides:
+
+- processing
+- Wi-Fi
+- Bluetooth capabilities
+- USB functionality
+- communication with the microSD subsystem
+- communication with the OLED
+
+The **microSD interface** provides removable local storage.
+
+The **OLED** provides local device feedback.
+
+The **USB-A and USB-C connectors** provide physical connectivity and power access.
+
+---
+
+## 07 — PCB DESIGN
+
+The PCB design went through the complete hardware workflow:
+
+<p align="center">
+  <img src="assets/pipeline.svg" width="850" alt="Dead Drop hardware design status">
+</p>
 
 The design process included:
 
-```text
-Schematic
-   ↓
-Component Selection
-   ↓
-PCB Placement
-   ↓
-Power Routing
-   ↓
-Signal Routing
-   ↓
-Ground / Return Paths
-   ↓
-Silkscreen + Branding
-   ↓
-DRC
-   ↓
-Gerber / BOM / CPL
-   ↓
-Manufacturing
-```
+- schematic
+- component selection
+- PCB placement
+- power routing
+- signal routing
+- ground / return paths
+- board outline
+- silkscreen and branding
+- DRC verification
+- Gerber generation
+- BOM generation
+- CPL generation
 
-The board uses a **2-layer stackup** with:
+The final design reached:
 
-* FR-4
-* 1.6 mm thickness
-* 1 oz copper
-* black solder mask
-* white silkscreen
-
-The final design was checked with EasyEDA's DRC and reached **0 reported DRC errors** before manufacturing preparation.
+**DRC — 0 REPORTED ERRORS**
 
 ---
 
-# Design Philosophy
+## 08 — DESIGN PHILOSOPHY
 
-Dead Drop isn't meant to be another oversized development-board project.
+### SMALL
 
-The physical design follows three principles:
+The board is designed around the physical constraints of a portable storage device.
 
-### Small
+The connectors, display, storage, ESP32-S3 and power system are placed directly around the intended physical interaction points.
 
-Every millimeter matters.
+### INTEGRATED
 
-The board was kept around **92 × 41 mm**, with the layout arranged around the actual physical constraints of the connectors, display, storage socket and ESP32 module.
+The project moves away from development-board stacks and brings the required circuitry onto one PCB.
 
-### Integrated
+### DELIBERATE
 
-Modules were replaced with circuitry integrated directly onto the PCB wherever practical.
+Connector placement, component placement, routing, board geometry and antenna clearance are treated as part of the product design.
 
-### Deliberate
+The PCB isn't just where the circuit lives.
 
-The board isn't just a collection of components that happen to work.
-
-Component placement, routing, connector positioning and the external board shape are all part of the product design.
+**It is part of the device.**
 
 ---
 
-# Manufacturing Files
+## 09 — MANUFACTURING
 
-The repository contains the files required to reproduce the PCB.
+The repository contains the manufacturing output required to move the design toward fabrication:
 
 ```text
 manufacturing/
@@ -249,137 +248,55 @@ manufacturing/
 └── cpl/
 ```
 
-### Gerbers
-
-Contains the fabrication layers required by a PCB manufacturer.
-
-### BOM
-
-The Bill of Materials contains the components used on the final design, including manufacturer and supplier information where available.
-
-### CPL
-
-The Component Placement List / Pick-and-Place file provides placement information required for automated assembly.
-
----
-
-# Bill of Materials
-
-The final board contains **19 detected component groups** in the assembly BOM.
-
-Some of the notable parts include:
-
-| Part                   | Manufacturer / Source |
-| ---------------------- | --------------------- |
-| ESP32-S3-WROOM-1-N16R8 | Espressif             |
-| TPS2116DRLR            | Texas Instruments     |
-| AP63203QWU-7           | Diodes Inc.           |
-| HS91L02W2C01           | HS                    |
-| 472192001              | Molex                 |
-| 917-181A102ED60200     | USB-A connector       |
-| TYPE-C-31-M-12         | USB-C connector       |
-
-The passive components use compact **0402 / 0603 / 0805** footprints where appropriate to keep the board small.
-
----
-
-# The Manufacturing Challenge
-
-One of the less visible parts of building custom hardware is getting from:
-
-> **"It works on my desk."**
-
-to:
-
-> **"Someone can actually manufacture this."**
-
-Dead Drop therefore went through the full manufacturing-data workflow:
+The current workflow is:
 
 ```text
-EasyEDA PCB
-     │
-     ├── Gerber
-     │
-     ├── BOM
-     │
-     └── CPL
-          │
-          ▼
-      PCBA Quote
-          │
-          ▼
-    Component Matching
-          │
-          ▼
-      Assembly
+DESIGN
+  ↓
+DRC
+  ↓
+GERBERS
+  ↓
+FABRICATION
+  ↓
+PCBA
+  ↓
+HARDWARE BRING-UP
 ```
 
-The BOM was prepared with supplier/manufacturer information to make automated component sourcing and assembly possible.
+The PCB design and manufacturing data are prepared.
+
+Physical fabrication and assembly are the next stage.
 
 ---
 
-# Design Highlights
+## 10 — STATUS
 
-### Compact form factor
+```text
+SCHEMATIC             DONE
+COMPONENT SELECTION   DONE
+PCB LAYOUT            DONE
+ROUTING               DONE
+BOARD OUTLINE         DONE
+SILKSCREEN            DONE
+DRC                   0 ERRORS
+GERBERS               DONE
+BOM                   DONE
+CPL                   DONE
 
-Approximately:
-
-**92.33 × 41.15 mm**
-
-### Wireless
-
-ESP32-S3 provides the wireless foundation.
-
-### Removable storage
-
-Standard microSD storage keeps the storage medium replaceable.
-
-### Local display
-
-A dedicated OLED allows the device to communicate status without another computer.
-
-### Dual USB interfaces
-
-USB-A and USB-C provide physical connectivity options.
-
-### Custom power management
-
-Power conversion and power-path management are integrated into the PCB.
-
-### Manufacturing-ready output
-
-Gerber + BOM + CPL files are generated for PCB assembly.
+PCB FABRICATION       NEXT
+PCBA                  NEXT
+HARDWARE BRING-UP     NEXT
+FIRMWARE              NEXT
+ENCLOSURE             NEXT
+```
 
 ---
 
-# Project Status
-
-### Hardware
-
-* [x] Schematic
-* [x] Component selection
-* [x] PCB layout
-* [x] Routing
-* [x] Board outline
-* [x] Branding / silkscreen
-* [x] DRC — 0 errors
-* [x] Gerber generation
-* [x] BOM generation
-* [x] CPL generation
-* [ ] PCB fabrication
-* [ ] PCBA
-* [ ] Hardware bring-up
-* [ ] Firmware integration
-* [ ] Final enclosure
-
----
-
-# Repository Structure
+## 11 — REPOSITORY
 
 ```text
 dead-drop/
-│
-├── README.md
 │
 ├── hardware/
 │   ├── schematic/
@@ -392,52 +309,74 @@ dead-drop/
 │   └── cpl/
 │
 ├── assets/
-│   ├── dead-drop-3d.gif
+│   ├── 3d.gif
 │   ├── dead-drop-render.png
-│   └── logo/
+│   ├── boot.svg
+│   ├── architecture.svg
+│   ├── pcb-scan.svg
+│   ├── power-flow.svg
+│   └── pipeline.svg
 │
 ├── firmware/
-│
-└── docs/
+├── docs/
+└── README.md
 ```
 
 ---
 
-# What's Next?
+## 12 — WHAT'S NEXT
 
 The PCB is only the first half of Dead Drop.
 
-The next stage is turning the manufactured board into a functional device.
+```text
+CUSTOM PCB
+     │
+     ▼
+FABRICATION
+     │
+     ▼
+   PCBA
+     │
+     ▼
+HARDWARE BRING-UP
+     │
+     ▼
+ FIRMWARE
+     │
+     ▼
+ ENCLOSURE
+     │
+     ▼
+FINISHED DEVICE
+```
 
-Planned work includes:
+Planned work:
 
-* ESP32-S3 firmware
-* storage management
-* wireless file access
-* OLED interface
-* device configuration
-* USB functionality
-* data transfer workflows
-* enclosure design
-* hardware testing
-* power-consumption optimization
-
-The goal is to eventually move from:
-
-**custom PCB → functional prototype → finished portable device**
-
----
-
-# Dead Drop
-
-> **Not another development board.**
->
-> **A storage device built like a product.**
+- ESP32-S3 firmware
+- storage management
+- wireless file access
+- OLED interface
+- USB functionality
+- data transfer workflows
+- enclosure design
+- hardware testing
+- power optimization
 
 ---
 
 <p align="center">
-  <strong>DEAD DROP</strong><br>
+  <img src="assets/boot.svg" width="620" alt="Dead Drop system status">
+</p>
+
+<p align="center">
+  <strong>NOT ANOTHER DEVELOPMENT BOARD.</strong>
+</p>
+
+<p align="center">
+  <sub>A storage device built like a product.</sub>
+</p>
+
+<p align="center">
   <sub>Physical in your hand. Online when you need it.</sub>
 </p>
 
