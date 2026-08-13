@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260">
+<rect width="900" height="260" rx="14" fill="#0b1016"/>
+<text x="35" y="42" fill="#7dd3fc" font-family="monospace" font-size="14">BUILD STATUS</text>
+<text x="35" y="82" fill="#64748b" font-family="monospace" font-size="11">DESIGN</text>
+<rect x="35" y="95" width="510" height="12" rx="6" fill="#182530"/>
+<rect x="35" y="95" width="510" height="12" rx="6" fill="#7dd3fc"/>
+<text x="565" y="106" fill="#86efac" font-family="monospace" font-size="12">COMPLETE</text>
+
+<text x="35" y="145" fill="#64748b" font-family="monospace" font-size="11">FABRICATION</text>
+<rect x="35" y="158" width="510" height="12" rx="6" fill="#182530"/>
+<text x="565" y="169" fill="#64748b" font-family="monospace" font-size="12">NEXT</text>
+
+<text x="35" y="208" fill="#64748b" font-family="monospace" font-size="11">BRING-UP</text>
+<rect x="35" y="221" width="510" height="12" rx="6" fill="#182530"/>
+<text x="565" y="232" fill="#64748b" font-family="monospace" font-size="12">NEXT</text>
+
+<text x="730" y="100" fill="#e2e8f0" font-family="monospace" font-size="14">DRC</text>
+<text x="730" y="132" fill="#86efac" font-family="monospace" font-size="22">0 ERRORS</text>
+<text x="730" y="178" fill="#e2e8f0" font-family="monospace" font-size="14">BOARD</text>
+<text x="730" y="208" fill="#7dd3fc" font-family="monospace" font-size="13">92.33 × 41.15</text>
+</svg>
