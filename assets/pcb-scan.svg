@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" role="img" aria-label="Animated Dead Drop PCB scan">
+<defs>
+<style>
+.bg{fill:#080c11}.board{fill:#111d27;stroke:#415465;stroke-width:2}.trace{stroke:#36566b;stroke-width:2;fill:none}.silk{stroke:#94a3b8;stroke-width:1;fill:none;opacity:.55}.label{font:14px monospace;fill:#cbd5e1}.small{font:11px monospace;fill:#64748b}.scan{stroke:#7dd3fc;stroke-width:3;filter:url(#glow);animation:sweep 3s linear infinite}.node{fill:#7dd3fc;opacity:.2;animation:pulse 2s ease-in-out infinite}
+@keyframes sweep{0%{transform:translateX(-650px)}100%{transform:translateX(650px)}} @keyframes pulse{50%{opacity:.8}}
+</style>
+<filter id="glow"><feGaussianBlur stdDeviation="5"/></filter>
+<clipPath id="pcb"><rect x="170" y="105" width="660" height="290" rx="18"/></clipPath>
+</defs>
+<rect width="1000" height="500" rx="16" class="bg"/>
+<text x="55" y="55" class="label">PCB // DIAGNOSTIC SCAN</text>
+<text x="55" y="78" class="small">92.33 × 41.15 mm · 2-LAYER · FR-4</text>
+
+<rect x="170" y="105" width="660" height="290" rx="18" class="board"/>
+<g clip-path="url(#pcb)">
+<path d="M210 180H390V145H500M500 145V230H700V180H810M240 330H420V275H580V350H790" class="trace"/>
+<path d="M250 125V210H330V300H450M680 125V210H620V300H740" class="trace"/>
+<rect x="470" y="175" width="180" height="100" rx="8" class="silk"/>
+<rect x="260" y="235" width="95" height="65" rx="5" class="silk"/>
+<rect x="690" y="235" width="80" height="50" rx="5" class="silk"/>
+<circle cx="300" cy="150" r="25" class="node"/><circle cx="560" cy="220" r="35" class="node"/><circle cx="730" cy="260" r="25" class="node"/>
+<line x1="170" y1="105" x2="170" y2="395" class="scan"/>
+</g>
+
+<g>
+<text x="200" y="435" class="small">ESP32-S3</text><text x="465" y="435" class="small">PROCESSING</text><text x="690" y="435" class="small">microSD / USB</text>
+</g>
+<text x="55" y="455" class="label">SCAN STATUS: <tspan fill="#86efac">VERIFIED</tspan></text>
+</svg>

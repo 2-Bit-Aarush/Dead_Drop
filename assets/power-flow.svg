@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 260" role="img" aria-label="Dead Drop animated power flow">
+<defs>
+<style>
+.bg{fill:#090d12}.box{fill:#0d141c;stroke:#334454}.t{font:15px monospace;fill:#dbe4ee}.s{font:11px monospace;fill:#64748b}.wire{stroke:#334e61;stroke-width:3;fill:none}.pulse{fill:#7dd3fc;filter:url(#g)}
+</style><filter id="g"><feGaussianBlur stdDeviation="4"/></filter></defs>
+<rect width="1000" height="260" rx="16" class="bg"/>
+<text x="40" y="42" class="s">POWER // DISTRIBUTION</text>
+<g>
+<rect x="50" y="95" width="145" height="75" rx="10" class="box"/><text x="92" y="127" class="t">USB-C</text><text x="78" y="149" class="s">INPUT</text>
+<rect x="285" y="95" width="160" height="75" rx="10" class="box"/><text x="327" y="127" class="t">TPS2116</text><text x="323" y="149" class="s">POWER PATH</text>
+<rect x="535" y="95" width="160" height="75" rx="10" class="box"/><text x="570" y="127" class="t">AP63203</text><text x="575" y="149" class="s">DC-DC</text>
+<rect x="785" y="95" width="165" height="75" rx="10" class="box"/><text x="842" y="127" class="t">3.3V</text><text x="818" y="149" class="s">SYSTEM RAIL</text>
+</g>
+<path d="M195 132H285M445 132H535M695 132H785" class="wire"/>
+<circle r="6" class="pulse"><animateMotion dur="2.4s" repeatCount="indefinite" path="M195 132H285"/></circle>
+<circle r="6" class="pulse"><animateMotion dur="2.4s" begin=".8s" repeatCount="indefinite" path="M445 132H535"/></circle>
+<circle r="6" class="pulse"><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite" path="M695 132H785"/></circle>
+<text x="795" y="205" class="s">→ ESP32-S3 · microSD · OLED</text>
+</svg>
