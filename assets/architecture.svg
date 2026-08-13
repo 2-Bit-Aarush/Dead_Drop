@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 460" role="img" aria-label="Dead Drop system architecture">
+<defs>
+  <radialGradient id="hub" cx=".5" cy=".45">
+    <stop offset="0" stop-color="#173546"/><stop offset="1" stop-color="#0b171f"/>
+  </radialGradient>
+  <style>
+    .title{font:600 14px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1.5px;fill:#dce7ee}
+    .sub{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1px;fill:#687c8a}
+    .box{fill:#0d171f;stroke:#354b58;stroke-width:1.5}
+    .hub{fill:url(#hub);stroke:#79c9e8;stroke-width:1.5}
+    .path{stroke:#365665;stroke-width:2;fill:none}
+    .packet{fill:#8bd8f4}
+    @keyframes travel1{to{offset-distance:100%}}
+    .p{offset-rotate:0deg;animation:travel1 2.8s linear infinite}
+    .slow{animation-duration:3.4s}
+    .glow{animation:glow 2.2s ease-in-out infinite}
+    @keyframes glow{0%,100%{opacity:.25}50%{opacity:1}}
+  </style>
+</defs>
+
+<rect width="1000" height="460" rx="18" fill="#070b10"/>
+<text x="40" y="42" class="title">SYSTEM ARCHITECTURE</text>
+<text x="40" y="64" class="sub">ONE PROCESSING CORE · MULTIPLE INTERFACES</text>
+
+<!-- storage -->
+<rect x="65" y="110" width="190" height="75" rx="10" class="box"/>
+<text x="105" y="143" class="title">microSD</text>
+<text x="105" y="165" class="sub">REMOVABLE STORAGE</text>
+
+<!-- wireless -->
+<rect x="745" y="90" width="190" height="75" rx="10" class="box"/>
+<text x="805" y="123" class="title">Wi-Fi</text>
+<text x="805" y="145" class="sub">WIRELESS ACCESS</text>
+
+<!-- USB -->
+<rect x="745" y="205" width="190" height="75" rx="10" class="box"/>
+<text x="805" y="238" class="title">USB</text>
+<text x="805" y="260" class="sub">PHYSICAL I/O</text>
+
+<!-- OLED -->
+<rect x="745" y="320" width="190" height="75" rx="10" class="box"/>
+<text x="805" y="353" class="title">OLED</text>
+<text x="790" y="375" class="sub">LOCAL FEEDBACK</text>
+
+<!-- hub -->
+<circle cx="500" cy="245" r="105" class="hub"/>
+<circle cx="500" cy="245" r="82" fill="none" stroke="#2c4b5b" stroke-width="1"/>
+<text x="438" y="239" class="title">ESP32-S3</text>
+<text x="443" y="262" class="sub">PROCESSING CORE</text>
+
+<!-- paths -->
+<path id="s1" d="M255 147H395C430 147 425 195 500 195" class="path"/>
+<path id="s2" d="M605 205C665 205 680 127 745 127" class="path"/>
+<path id="s3" d="M605 245H745" class="path"/>
+<path id="s4" d="M560 330C635 350 675 357 745 357" class="path"/>
+
+<circle r="5" class="packet">
+  <animateMotion dur="2.8s" repeatCount="indefinite" path="M255 147H395C430 147 425 195 500 195"/>
+</circle>
+<circle r="5" class="packet slow">
+  <animateMotion dur="3.4s" repeatCount="indefinite" path="M605 205C665 205 680 127 745 127"/>
+</circle>
+<circle r="5" class="packet">
+  <animateMotion dur="2.5s" repeatCount="indefinite" path="M605 245H745"/>
+</circle>
+<circle r="5" class="packet slow">
+  <animateMotion dur="3.2s" repeatCount="indefinite" path="M560 330C635 350 675 357 745 357"/>
+</circle>
+
+<text x="65" y="420" class="sub">STORAGE</text>
+<text x="455" y="420" class="sub">CONTROL / PROCESS / ROUTE</text>
+<text x="745" y="420" class="sub">INTERFACES</text>
+</svg>

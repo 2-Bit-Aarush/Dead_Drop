@@ -1,67 +1,85 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="Dead Drop custom PCB concept: separate modules converge into one integrated board">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 470" role="img" aria-label="Dead Drop replaces separate development modules with one integrated custom PCB">
 <defs>
   <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0" stop-color="#070b10"/><stop offset="1" stop-color="#0d151d"/>
+    <stop offset="0" stop-color="#070b10"/><stop offset="1" stop-color="#0d151c"/>
   </linearGradient>
   <style>
-    .label{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1.4px;fill:#d7e1ea}
-    .sub{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1px;fill:#667889}
-    .line{stroke:#314451;stroke-width:1.5;fill:none}
-    .cyan{stroke:#79c9e8;fill:none}
-    .cyanFill{fill:#79c9e8}
-    .board{fill:#101b24;stroke:#5a7281;stroke-width:1.5}
-    .module{fill:#101820;stroke:#3d5260;stroke-width:1.5}
-    .moduleText{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#c9d5de}
-    .smallDot{fill:#79c9e8}
-    @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
-    @keyframes draw{from{stroke-dashoffset:80}to{stroke-dashoffset:0}}
-    .pulse{animation:pulse 2s ease-in-out infinite}
-    .draw{stroke-dasharray:80;animation:draw 2.4s ease-out infinite}
+    .title{font:600 14px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1.5px;fill:#dce7ee}
+    .sub{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1px;fill:#667b89}
+    .mod{fill:#101920;stroke:#344b59;stroke-width:1.5}
+    .modtxt{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#cbd7df}
+    .wire{stroke:#456779;stroke-width:2;fill:none}
+    .accent{stroke:#79c9e8;fill:none}
+    .board{fill:#0d202b;stroke:#62808f;stroke-width:1.5}
+    @keyframes pull{0%,12%{transform:translate(0,0);opacity:1}42%,75%{transform:translate(190px,0);opacity:1}88%,100%{transform:translate(190px,0);opacity:0}}
+    @keyframes reveal{0%,42%{opacity:0}58%,88%{opacity:1}100%{opacity:0}}
+    @keyframes pulse{0%,100%{opacity:.2}50%{opacity:1}}
+    .p1{animation:pull 5s ease-in-out infinite}
+    .p2{animation:pull 5s .15s ease-in-out infinite}
+    .p3{animation:pull 5s .3s ease-in-out infinite}
+    .p4{animation:pull 5s .45s ease-in-out infinite}
+    .p5{animation:pull 5s .6s ease-in-out infinite}
+    .p6{animation:pull 5s .75s ease-in-out infinite}
+    .reveal{animation:reveal 5s ease-in-out infinite}
+    .pulse{animation:pulse 1.8s ease-in-out infinite}
   </style>
 </defs>
 
-<rect width="1000" height="420" rx="18" fill="url(#bg)"/>
-<text x="42" y="42" class="label">WHY CUSTOM HARDWARE</text>
-<text x="42" y="64" class="sub">FROM MODULE STACK → SINGLE DEVICE</text>
+<rect width="1000" height="470" rx="18" fill="url(#bg)"/>
+<text x="40" y="42" class="title">WHY CUSTOM</text>
+<text x="40" y="64" class="sub">THE PROTOTYPE STACK → ONE PURPOSE-BUILT BOARD</text>
 
-<!-- left: module stack -->
+<!-- left stack -->
 <g>
-  <rect x="55" y="105" width="205" height="54" rx="8" class="module"/>
-  <text x="78" y="138" class="moduleText">ESP32 DEV BOARD</text>
-  <rect x="55" y="171" width="205" height="54" rx="8" class="module"/>
-  <text x="92" y="204" class="moduleText">SD MODULE</text>
-  <rect x="55" y="237" width="205" height="54" rx="8" class="module"/>
-  <text x="96" y="270" class="moduleText">OLED</text>
-  <rect x="55" y="303" width="205" height="54" rx="8" class="module"/>
-  <text x="91" y="336" class="moduleText">POWER</text>
-  <path d="M260 132H305M260 198H305M260 264H305M260 330H305" class="line"/>
-  <text x="55" y="386" class="sub">WIRES · BREAKOUTS · EXTRA VOLUME</text>
+  <rect x="55" y="92" width="190" height="46" rx="8" class="mod"/>
+  <text x="88" y="121" class="modtxt">ESP32</text>
+  <rect x="55" y="150" width="190" height="46" rx="8" class="mod"/>
+  <text x="92" y="179" class="modtxt">SD MODULE</text>
+  <rect x="55" y="208" width="190" height="46" rx="8" class="mod"/>
+  <text x="103" y="237" class="modtxt">OLED</text>
+  <rect x="55" y="266" width="190" height="46" rx="8" class="mod"/>
+  <text x="101" y="295" class="modtxt">USB</text>
+  <rect x="55" y="324" width="190" height="46" rx="8" class="mod"/>
+  <text x="102" y="353" class="modtxt">POWER</text>
+  <rect x="55" y="382" width="190" height="46" rx="8" class="mod"/>
+  <text x="103" y="411" class="modtxt">WIRES</text>
 </g>
 
+<!-- moving copies -->
+<g class="p1"><rect x="55" y="92" width="190" height="46" rx="8" class="mod"/><text x="88" y="121" class="modtxt">ESP32</text></g>
+<g class="p2"><rect x="55" y="150" width="190" height="46" rx="8" class="mod"/><text x="92" y="179" class="modtxt">SD MODULE</text></g>
+<g class="p3"><rect x="55" y="208" width="190" height="46" rx="8" class="mod"/><text x="103" y="237" class="modtxt">OLED</text></g>
+<g class="p4"><rect x="55" y="266" width="190" height="46" rx="8" class="mod"/><text x="101" y="295" class="modtxt">USB</text></g>
+<g class="p5"><rect x="55" y="324" width="190" height="46" rx="8" class="mod"/><text x="102" y="353" class="modtxt">POWER</text></g>
+<g class="p6"><rect x="55" y="382" width="190" height="46" rx="8" class="mod"/><text x="103" y="411" class="modtxt">WIRES</text></g>
+
 <!-- convergence -->
-<path d="M305 132H350M305 198H350M305 264H350M305 330H350" class="cyan draw"/>
-<circle cx="355" cy="231" r="4" class="cyanFill pulse"/>
-<path d="M350 132C380 132 380 231 430 231M350 198C390 198 390 231 430 231M350 264C390 264 390 231 430 231M350 330C380 330 380 231 430 231" class="cyan" opacity=".65"/>
+<path d="M245 115H300M245 173H300M245 231H300M245 289H300M245 347H300M245 405H300" class="wire"/>
+<path d="M300 115C345 115 345 235 390 235M300 173C350 173 350 235 390 235M300 231H390M300 289C350 289 350 235 390 235M300 347C345 347 345 235 390 235M300 405C345 405 345 235 390 235" class="accent" opacity=".7"/>
+<circle cx="390" cy="235" r="5" fill="#79c9e8" class="pulse"/>
 
-<!-- right: integrated board -->
-<rect x="470" y="92" width="470" height="280" rx="22" class="board"/>
-<path d="M500 150H610V125H705M500 310H620V270H730M805 125V175H900M760 335V285H900" class="line"/>
-<rect x="610" y="170" width="175" height="90" rx="8" fill="#0b141c" stroke="#79c9e8"/>
-<text x="660" y="208" class="label">DEAD DROP</text>
-<text x="662" y="232" class="sub">ONE CUSTOM PCB</text>
+<!-- integrated board -->
+<g class="reveal">
+  <rect x="455" y="88" width="480" height="294" rx="24" class="board"/>
+  <text x="492" y="130" class="title">DEAD DROP</text>
+  <text x="492" y="151" class="sub">ONE CUSTOM PCB</text>
 
-<rect x="500" y="120" width="80" height="42" rx="6" class="module"/>
-<text x="520" y="146" class="sub">STORAGE</text>
-<rect x="805" y="120" width="105" height="42" rx="6" class="module"/>
-<text x="835" y="146" class="sub">USB</text>
-<rect x="505" y="285" width="95" height="42" rx="6" class="module"/>
-<text x="525" y="311" class="sub">POWER</text>
-<rect x="805" y="285" width="105" height="42" rx="6" class="module"/>
-<text x="828" y="311" class="sub">OLED</text>
+  <rect x="500" y="188" width="125" height="55" rx="8" class="mod"/>
+  <text x="533" y="221" class="sub">STORAGE</text>
 
-<circle cx="500" cy="150" r="3" class="smallDot pulse"/>
-<circle cx="610" cy="125" r="3" class="smallDot pulse"/>
-<circle cx="805" cy="175" r="3" class="smallDot pulse"/>
+  <rect x="655" y="170" width="180" height="92" rx="10" fill="#0a141b" stroke="#79c9e8"/>
+  <text x="701" y="213" class="title">PROCESSING</text>
+  <text x="718" y="236" class="sub">ESP32-S3</text>
 
-<text x="470" y="396" class="sub">INTEGRATED · COMPACT · PURPOSE-BUILT</text>
+  <rect x="500" y="285" width="125" height="48" rx="8" class="mod"/>
+  <text x="532" y="315" class="sub">POWER</text>
+
+  <rect x="655" y="285" width="180" height="48" rx="8" class="mod"/>
+  <text x="704" y="315" class="sub">CONNECTIVITY</text>
+
+  <path d="M625 216H655M745 262V285M625 309H655" class="accent"/>
+  <circle cx="655" cy="216" r="3" fill="#79c9e8" class="pulse"/>
+</g>
+
+<text x="455" y="410" class="sub">LESS WIRING · LESS VOLUME · MORE CONTROL</text>
 </svg>
