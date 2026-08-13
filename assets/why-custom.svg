@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 420" role="img" aria-label="Dead Drop custom PCB concept: separate modules converge into one integrated board">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#070b10"/><stop offset="1" stop-color="#0d151d"/>
+  </linearGradient>
+  <style>
+    .label{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1.4px;fill:#d7e1ea}
+    .sub{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1px;fill:#667889}
+    .line{stroke:#314451;stroke-width:1.5;fill:none}
+    .cyan{stroke:#79c9e8;fill:none}
+    .cyanFill{fill:#79c9e8}
+    .board{fill:#101b24;stroke:#5a7281;stroke-width:1.5}
+    .module{fill:#101820;stroke:#3d5260;stroke-width:1.5}
+    .moduleText{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#c9d5de}
+    .smallDot{fill:#79c9e8}
+    @keyframes pulse{0%,100%{opacity:.25}50%{opacity:1}}
+    @keyframes draw{from{stroke-dashoffset:80}to{stroke-dashoffset:0}}
+    .pulse{animation:pulse 2s ease-in-out infinite}
+    .draw{stroke-dasharray:80;animation:draw 2.4s ease-out infinite}
+  </style>
+</defs>
+
+<rect width="1000" height="420" rx="18" fill="url(#bg)"/>
+<text x="42" y="42" class="label">WHY CUSTOM HARDWARE</text>
+<text x="42" y="64" class="sub">FROM MODULE STACK → SINGLE DEVICE</text>
+
+<!-- left: module stack -->
+<g>
+  <rect x="55" y="105" width="205" height="54" rx="8" class="module"/>
+  <text x="78" y="138" class="moduleText">ESP32 DEV BOARD</text>
+  <rect x="55" y="171" width="205" height="54" rx="8" class="module"/>
+  <text x="92" y="204" class="moduleText">SD MODULE</text>
+  <rect x="55" y="237" width="205" height="54" rx="8" class="module"/>
+  <text x="96" y="270" class="moduleText">OLED</text>
+  <rect x="55" y="303" width="205" height="54" rx="8" class="module"/>
+  <text x="91" y="336" class="moduleText">POWER</text>
+  <path d="M260 132H305M260 198H305M260 264H305M260 330H305" class="line"/>
+  <text x="55" y="386" class="sub">WIRES · BREAKOUTS · EXTRA VOLUME</text>
+</g>
+
+<!-- convergence -->
+<path d="M305 132H350M305 198H350M305 264H350M305 330H350" class="cyan draw"/>
+<circle cx="355" cy="231" r="4" class="cyanFill pulse"/>
+<path d="M350 132C380 132 380 231 430 231M350 198C390 198 390 231 430 231M350 264C390 264 390 231 430 231M350 330C380 330 380 231 430 231" class="cyan" opacity=".65"/>
+
+<!-- right: integrated board -->
+<rect x="470" y="92" width="470" height="280" rx="22" class="board"/>
+<path d="M500 150H610V125H705M500 310H620V270H730M805 125V175H900M760 335V285H900" class="line"/>
+<rect x="610" y="170" width="175" height="90" rx="8" fill="#0b141c" stroke="#79c9e8"/>
+<text x="660" y="208" class="label">DEAD DROP</text>
+<text x="662" y="232" class="sub">ONE CUSTOM PCB</text>
+
+<rect x="500" y="120" width="80" height="42" rx="6" class="module"/>
+<text x="520" y="146" class="sub">STORAGE</text>
+<rect x="805" y="120" width="105" height="42" rx="6" class="module"/>
+<text x="835" y="146" class="sub">USB</text>
+<rect x="505" y="285" width="95" height="42" rx="6" class="module"/>
+<text x="525" y="311" class="sub">POWER</text>
+<rect x="805" y="285" width="105" height="42" rx="6" class="module"/>
+<text x="828" y="311" class="sub">OLED</text>
+
+<circle cx="500" cy="150" r="3" class="smallDot pulse"/>
+<circle cx="610" cy="125" r="3" class="smallDot pulse"/>
+<circle cx="805" cy="175" r="3" class="smallDot pulse"/>
+
+<text x="470" y="396" class="sub">INTEGRATED · COMPACT · PURPOSE-BUILT</text>
+</svg>

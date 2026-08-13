@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 430" role="img" aria-label="Dead Drop manufacturing package moving from design files to fabrication">
+<defs>
+  <style>
+    .bg{fill:#080c11}.panel{fill:#0d151d;stroke:#2e434f}.label{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1.2px;fill:#dbe7ef}.sub{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1px;fill:#687c8a}.cyan{stroke:#79c9e8;fill:none}.packet{fill:#79c9e8}.board{fill:#112b38;stroke:#6a8793}
+    @keyframes move1{0%{transform:translate(0,0);opacity:0}15%{opacity:1}70%{transform:translate(245px,0);opacity:1}85%,100%{transform:translate(245px,0);opacity:0}}
+    @keyframes move2{0%{transform:translate(0,0);opacity:0}15%{opacity:1}70%{transform:translate(245px,0);opacity:1}85%,100%{transform:translate(245px,0);opacity:0}}
+    @keyframes move3{0%{transform:translate(0,0);opacity:0}15%{opacity:1}70%{transform:translate(245px,0);opacity:1}85%,100%{transform:translate(245px,0);opacity:0}}
+    @keyframes assemble{0%,55%{opacity:0;transform:scale(.96)}65%,90%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1)}}
+    .m1{animation:move1 5s linear infinite}.m2{animation:move2 5s .45s linear infinite}.m3{animation:move3 5s .9s linear infinite}.assembled{transform-origin:760px 220px;animation:assemble 5s ease-in-out infinite}
+  </style>
+</defs>
+<rect width="1000" height="430" rx="18" class="bg"/>
+<text x="42" y="42" class="label">MANUFACTURING / RELEASE PACKAGE</text>
+<text x="42" y="64" class="sub">DESIGN OUTPUT → FABRICATION</text>
+
+<!-- source files -->
+<rect x="55" y="105" width="205" height="230" rx="14" class="panel"/>
+<text x="80" y="138" class="label">RELEASE FILES</text>
+
+<g class="panel">
+  <rect x="80" y="165" width="155" height="42" rx="7" fill="#111d25" stroke="#39505e"/>
+  <text x="103" y="191" class="sub">GERBERS</text>
+  <rect x="80" y="220" width="155" height="42" rx="7" fill="#111d25" stroke="#39505e"/>
+  <text x="103" y="246" class="sub">BOM</text>
+  <rect x="80" y="275" width="155" height="42" rx="7" fill="#111d25" stroke="#39505e"/>
+  <text x="103" y="301" class="sub">CPL</text>
+</g>
+
+<!-- route -->
+<path d="M260 186H500M260 241H500M260 296H500" class="cyan" opacity=".35"/>
+<g class="m1"><circle cx="270" cy="186" r="5" class="packet"/></g>
+<g class="m2"><circle cx="270" cy="241" r="5" class="packet"/></g>
+<g class="m3"><circle cx="270" cy="296" r="5" class="packet"/></g>
+
+<!-- fab -->
+<rect x="500" y="105" width="185" height="230" rx="14" class="panel"/>
+<text x="525" y="138" class="label">FABRICATION</text>
+<path d="M530 180H655M530 205H655M530 230H655M530 255H620" stroke="#334b58" stroke-width="2"/>
+<text x="530" y="300" class="sub">PCB ASSEMBLY</text>
+<text x="530" y="318" class="sub">READY FOR NEXT STAGE</text>
+
+<!-- board -->
+<g class="assembled">
+  <rect x="760" y="130" width="160" height="180" rx="18" class="board"/>
+  <rect x="790" y="165" width="90" height="45" rx="6" fill="#0b171f" stroke="#79c9e8"/>
+  <text x="805" y="192" class="sub">PCB</text>
+  <rect x="810" y="230" width="60" height="35" rx="5" fill="#0b171f" stroke="#45616f"/>
+  <circle cx="785" cy="275" r="7" fill="#79c9e8"/>
+  <circle cx="895" cy="275" r="7" fill="#79c9e8"/>
+</g>
+
+<text x="760" y="345" class="label">FABRICATION</text>
+<text x="760" y="365" class="sub">THE DESIGN BECOMES HARDWARE</text>
+</svg>
