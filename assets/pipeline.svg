@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 470" role="img" aria-label="Dead Drop hardware design pipeline from schematic to manufacturing outputs">
+<defs>
+  <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#070b10"/><stop offset="1" stop-color="#0d151d"/>
+  </linearGradient>
+  <style>
+    .title{font:600 14px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1.6px;fill:#dce8ef}
+    .sub{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1px;fill:#708592}
+    .node{fill:#0e181f;stroke:#3b5361;stroke-width:1.5}
+    .done{fill:#0d222a;stroke:#5d8794}
+    .line{stroke:#304a58;stroke-width:2;fill:none}
+    .active{stroke:#78cde9;stroke-width:2;stroke-dasharray:4 9;fill:none}
+    .dot{fill:#86daf4}
+    .check{fill:none;stroke:#82d7b2;stroke-width:2}
+    @keyframes flow{to{stroke-dashoffset:-65}}
+    @keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+    @keyframes checkin{0%,15%{opacity:0;transform:scale(.8)}25%,80%{opacity:1;transform:scale(1)}95%,100%{opacity:0}}
+    .activeflow{animation:flow 1.25s linear infinite}
+    .pulse{animation:pulse 2s ease-in-out infinite}
+    .ci{transform-origin:0 0;animation:checkin 5.8s ease-in-out infinite}
+  </style>
+</defs>
+
+<rect width="1100" height="470" rx="20" fill="url(#bg2)"/>
+
+<text x="42" y="42" class="title">DEAD DROP / DESIGN PIPELINE</text>
+<text x="42" y="64" class="sub">FROM CIRCUIT CAPTURE TO MANUFACTURING OUTPUT</text>
+
+<!-- top status -->
+<rect x="850" y="27" width="205" height="48" rx="9" fill="#0c171e" stroke="#304754"/>
+<circle cx="872" cy="51" r="4" fill="#82d7b2" class="pulse"/>
+<text x="888" y="48" class="sub">CURRENT STATE</text>
+<text x="888" y="63" class="title" font-size="12">DESIGN COMPLETE</text>
+
+<!-- central route -->
+<path d="M105 185H995" class="line"/>
+<path d="M105 185H995" class="active activeflow"/>
+
+<!-- nodes -->
+<g>
+  <circle cx="105" cy="185" r="45" class="done"/>
+  <path d="M82 185H128M105 162V208" stroke="#82d7b2" stroke-width="2"/>
+  <text x="77" y="255" class="title">01</text>
+  <text x="52" y="277" class="sub">SCHEMATIC</text>
+
+  <circle cx="283" cy="185" r="45" class="done"/>
+  <rect x="264" y="166" width="38" height="38" rx="5" fill="none" stroke="#79c9e8"/>
+  <circle cx="273" cy="175" r="3" fill="#79c9e8"/><circle cx="293" cy="175" r="3" fill="#79c9e8"/>
+  <circle cx="273" cy="195" r="3" fill="#79c9e8"/><circle cx="293" cy="195" r="3" fill="#79c9e8"/>
+  <text x="255" y="255" class="title">02</text>
+  <text x="220" y="277" class="sub">COMPONENTS</text>
+
+  <circle cx="461" cy="185" r="45" class="done"/>
+  <rect x="435" y="164" width="52" height="42" rx="6" fill="none" stroke="#79c9e8"/>
+  <path d="M444 174H478M444 184H470M444 194H480" stroke="#79c9e8"/>
+  <text x="433" y="255" class="title">03</text>
+  <text x="410" y="277" class="sub">PLACEMENT</text>
+
+  <circle cx="639" cy="185" r="45" class="done"/>
+  <path d="M614 195L632 177L644 190L665 166" fill="none" stroke="#79c9e8" stroke-width="2"/>
+  <circle cx="614" cy="195" r="3" fill="#79c9e8"/><circle cx="632" cy="177" r="3" fill="#79c9e8"/><circle cx="644" cy="190" r="3" fill="#79c9e8"/><circle cx="665" cy="166" r="3" fill="#79c9e8"/>
+  <text x="611" y="255" class="title">04</text>
+  <text x="607" y="277" class="sub">ROUTING</text>
+
+  <circle cx="817" cy="185" r="45" class="done"/>
+  <path d="M797 186L810 199L837 169" class="check"/>
+  <text x="789" y="255" class="title">05</text>
+  <text x="770" y="277" class="sub">DRC / VERIFY</text>
+
+  <circle cx="995" cy="185" r="45" class="node"/>
+  <path d="M976 174H1014V199H976Z" fill="none" stroke="#79c9e8"/>
+  <path d="M982 167H1008" stroke="#79c9e8"/>
+  <text x="967" y="255" class="title">06</text>
+  <text x="959" y="277" class="sub">OUTPUTS</text>
+</g>
+
+<!-- status card -->
+<rect x="70" y="325" width="960" height="82" rx="13" fill="#0b151c" stroke="#2e4754"/>
+
+<text x="98" y="350" class="sub">DRC STATUS</text>
+<text x="98" y="382" class="title" font-size="22">0 ERRORS</text>
+<path d="M265 345V387" stroke="#2b414d"/>
+<text x="295" y="350" class="sub">RELEASE PACKAGE</text>
+<text x="295" y="378" class="title" font-size="12">GERBER</text>
+<text x="370" y="378" class="title" font-size="12">BOM</text>
+<text x="425" y="378" class="title" font-size="12">CPL</text>
+
+<path d="M510 366H790" class="line"/>
+<path d="M510 366H790" class="active activeflow"/>
+<circle cx="810" cy="366" r="7" fill="#82d7b2" class="pulse"/>
+<text x="835" y="350" class="sub">NEXT</text>
+<text x="835" y="378" class="title" font-size="12">FABRICATION</text>
+
+<text x="70" y="440" class="sub">SCHEMATIC → COMPONENTS → PLACEMENT → ROUTING → DRC → MANUFACTURING DATA</text>
+</svg>

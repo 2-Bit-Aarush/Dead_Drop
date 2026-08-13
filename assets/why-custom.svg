@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 500" role="img" aria-label="Dead Drop replaces a stack of modules and wires with one integrated custom PCB">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#070b10"/><stop offset="1" stop-color="#0c151d"/>
+  </linearGradient>
+  <linearGradient id="pcb" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#123343"/><stop offset="1" stop-color="#0a1d28"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5"/></filter>
+  <style>
+    .title{font:600 14px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1.6px;fill:#dce8ef}
+    .sub{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1px;fill:#708592}
+    .module{fill:#101920;stroke:#354b58;stroke-width:1.5}
+    .mt{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#cdd9e0}
+    .wire{fill:none;stroke:#425b68;stroke-width:1.6}
+    .signal{fill:none;stroke:#73c9e8;stroke-width:2;stroke-dasharray:5 9}
+    .pcb{fill:url(#pcb);stroke:#67838f;stroke-width:1.5}
+    .trace{fill:none;stroke:#356277;stroke-width:1.5}
+    .silk{fill:none;stroke:#a8bbc4;stroke-width:1}
+    .dot{fill:#83d7f3}
+    @keyframes dash{to{stroke-dashoffset:-56}}
+    @keyframes board{0%,18%{opacity:0}32%,82%{opacity:1}94%,100%{opacity:0}}
+    @keyframes converge{0%,12%{opacity:0;stroke-dashoffset:0}25%,68%{opacity:1;stroke-dashoffset:-90}82%,100%{opacity:0}}
+    @keyframes breathe{0%,100%{opacity:.25}50%{opacity:1}}
+    .flow{animation:dash 1.3s linear infinite}
+    .reveal{animation:board 5.5s ease-in-out infinite}
+    .conv{stroke-dasharray:8 10;animation:converge 5.5s ease-in-out infinite}
+    .breathe{animation:breathe 2s ease-in-out infinite}
+  </style>
+</defs>
+
+<rect width="1100" height="500" rx="20" fill="url(#bg)"/>
+
+<text x="42" y="42" class="title">WHY CUSTOM</text>
+<text x="42" y="64" class="sub">THE OLD PROTOTYPE STACK → ONE PURPOSE-BUILT DEVICE</text>
+
+<!-- OLD STACK -->
+<text x="62" y="102" class="sub">THE OLD WAY</text>
+<g>
+  <rect x="62" y="120" width="190" height="43" rx="7" class="module"/>
+  <text x="94" y="147" class="mt">ESP32</text>
+  <rect x="62" y="176" width="190" height="43" rx="7" class="module"/>
+  <text x="91" y="203" class="mt">SD MODULE</text>
+  <rect x="62" y="232" width="190" height="43" rx="7" class="module"/>
+  <text x="104" y="259" class="mt">OLED</text>
+  <rect x="62" y="288" width="190" height="43" rx="7" class="module"/>
+  <text x="101" y="315" class="mt">USB</text>
+  <rect x="62" y="344" width="190" height="43" rx="7" class="module"/>
+  <text x="100" y="371" class="mt">POWER</text>
+  <rect x="62" y="400" width="190" height="43" rx="7" class="module"/>
+  <text x="101" y="427" class="mt">WIRES</text>
+</g>
+
+<!-- Static wires: no moving duplicated objects, avoiding animation glitches -->
+<path d="M252 141C315 141 315 250 430 250M252 197C325 197 330 250 430 250M252 253H430M252 309C325 309 330 250 430 250M252 365C315 365 315 250 430 250M252 421C305 421 330 250 430 250" class="wire"/>
+
+<!-- Animated signal highlights -->
+<path d="M252 141C315 141 315 250 430 250M252 197C325 197 330 250 430 250M252 253H430M252 309C325 309 330 250 430 250M252 365C315 365 315 250 430 250M252 421C305 421 330 250 430 250" class="conv"/>
+
+<circle cx="430" cy="250" r="5" class="dot breathe"/>
+<text x="62" y="468" class="sub">MODULES · BREAKOUTS · WIRES</text>
+
+<!-- CENTER STATEMENT -->
+<text x="470" y="190" class="title">REIMAGINED AS ONE SYSTEM</text>
+<text x="470" y="214" class="sub">less hardware overhead / more control</text>
+
+<!-- INTEGRATED BOARD -->
+<g class="reveal">
+  <rect x="625" y="105" width="420" height="290" rx="24" class="pcb"/>
+  <path d="M650 165H735V140H810M650 335H750V300H850M925 140V190H1015M910 350V315H1015" class="trace"/>
+  <path d="M785 220H925M835 165V300M735 250H790" class="trace"/>
+  <rect x="790" y="190" width="155" height="90" rx="9" fill="#09151d" stroke="#75cce9"/>
+  <text x="835" y="230" class="title">DEAD DROP</text>
+  <text x="828" y="253" class="sub">ESP32-S3 CORE</text>
+
+  <rect x="655" y="135" width="105" height="44" rx="7" class="module"/>
+  <text x="686" y="162" class="sub">STORAGE</text>
+  <rect x="950" y="135" width="75" height="44" rx="7" class="module"/>
+  <text x="966" y="162" class="sub">USB</text>
+  <rect x="655" y="310" width="105" height="44" rx="7" class="module"/>
+  <text x="690" y="337" class="sub">POWER</text>
+  <rect x="950" y="310" width="75" height="44" rx="7" class="module"/>
+  <text x="963" y="337" class="sub">OLED</text>
+
+  <path d="M760 157H790M945 157H950M760 332H790M945 332H950" class="signal flow"/>
+  <circle cx="790" cy="235" r="3.5" class="dot breathe"/>
+</g>
+
+<text x="625" y="430" class="title">ONE BOARD</text>
+<text x="625" y="452" class="sub">STORAGE · PROCESSING · POWER · CONNECTIVITY</text>
+</svg>
