@@ -3,7 +3,7 @@
 ### Physical storage. Online, without the friction.
 
 <p align="center">
-  <img src="assets/dead-drop-3d.gif" width="800">
+  <img src="assets/3d.gif" width="800">
 </p>
 
 <p align="center">
