@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/boot.svg" width="760" alt="Dead Drop system status">
+  <img src="assets/dead-drop-logo.svg" width="760" alt="Dead Drop system status">
 </p>
 
 <p align="center">
@@ -67,9 +67,7 @@ The current board is built around a compact, connector-driven layout:
 | **USB** | USB-A + USB-C |
 | **Power** | TPS2116DRLR + AP63203QWU-7 |
 | **PCB** | 2-layer FR-4 |
-| **Dimensions** | **[INSERT ACTUAL PCB DIMENSIONS]** |
-
-> **Note:** Replace the dimensions above with the actual X × Y measurement from EasyEDA. The new PCB screenshots do not expose the physical dimensions.
+| **Dimensions** | 58.67 × 35.96 mm |
 
 ---
 
@@ -317,8 +315,6 @@ dead-drop/
 │   ├── power-flow.svg
 │   └── pipeline.svg
 │
-├── firmware/
-├── docs/
 └── README.md
 ```
 
@@ -365,7 +361,7 @@ Planned work:
 ---
 
 <p align="center">
-  <img src="assets/boot.svg" width="620" alt="Dead Drop system status">
+  <img src="assets/dead-drop-logo.svg" width="620" alt="">
 </p>
 
 <p align="center">
