@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 360" role="img" aria-label="DEAD DROP word art">
+<defs>
+  <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#a8eaff"/>
+    <stop offset=".45" stop-color="#78cce8"/>
+    <stop offset="1" stop-color="#3f91b7"/>
+  </linearGradient>
+  <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
+    <stop stop-color="#eef9ff"/>
+    <stop offset=".48" stop-color="#b9dce9"/>
+    <stop offset="1" stop-color="#668997"/>
+  </linearGradient>
+  <filter id="glow" x="-30%" y="-50%" width="160%" height="200%">
+    <feGaussianBlur stdDeviation="7" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <style>
+    .main{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:150px;font-weight:900;letter-spacing:18px;
+      fill:url(#fill);stroke:url(#edge);stroke-width:3;
+      paint-order:stroke fill;filter:url(#glow)
+    }
+    .small{
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:14px;font-weight:600;letter-spacing:7px;fill:#6f8996
+    }
+    .trace{fill:none;stroke:#3a5d6d;stroke-width:2}
+    .bright{fill:none;stroke:#8be0fa;stroke-width:3;stroke-linecap:round}
+    .dot{fill:#8be0fa}
+    @keyframes scan{from{transform:translateX(-900px)}to{transform:translateX(900px)}}
+    @keyframes blink{0%,100%{opacity:.25}50%{opacity:1}}
+    .scanner{animation:scan 4s linear infinite}
+    .blink{animation:blink 1.8s ease-in-out infinite}
+  </style>
+  <clipPath id="textClip">
+    <text x="700" y="220" text-anchor="middle" class="main">DEAD DROP</text>
+  </clipPath>
+</defs>
+
+<rect width="1400" height="360" rx="24" fill="#070b10"/>
+
+<!-- subtle PCB-style background -->
+<path d="M55 78H245V45H350M1050 45H1150V78H1345
+         M55 282H215V315H315M1080 315H1190V282H1345" class="trace"/>
+<path d="M70 100H180M1220 100H1330M70 260H180M1220 260H1330" class="trace"/>
+
+<circle cx="55" cy="78" r="4" class="dot blink"/>
+<circle cx="1345" cy="78" r="4" class="dot blink"/>
+<circle cx="55" cy="282" r="4" class="dot blink"/>
+<circle cx="1345" cy="282" r="4" class="dot blink"/>
+
+<!-- Main word -->
+<text x="700" y="220" text-anchor="middle" class="main">DEAD DROP</text>
+
+<!-- technical scan passing through the lettering -->
+<g clip-path="url(#textClip)" opacity=".55">
+  <rect x="0" y="70" width="5" height="175" fill="#9be7ff" class="scanner"/>
+  <rect x="0" y="70" width="80" height="175" fill="#8bdcf6" opacity=".06" class="scanner"/>
+</g>
+
+<!-- digital break / payload motif between words -->
+<g transform="translate(690 247)">
+  <path d="M-210 0H-45M45 0H210" class="bright" opacity=".55"/>
+  <rect x="-18" y="-18" width="36" height="36" rx="5" fill="#0b171f" stroke="#82daf6" stroke-width="2"/>
+  <path d="M-9 -6H9M-9 2H6M-9 10H2" stroke="#82daf6" stroke-width="2"/>
+</g>
+
+<text x="700" y="300" text-anchor="middle" class="small">
+PHYSICAL STORAGE  /  CONNECTED BY DESIGN
+</text>
+</svg>
