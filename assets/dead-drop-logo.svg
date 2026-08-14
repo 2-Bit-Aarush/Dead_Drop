@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img" aria-label="Minimal Dead Drop logo with a ghosted data packet entering a network node">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#a1e9ff"/><stop offset="1" stop-color="#4aa9d1"/>
+  </linearGradient>
+  <style>
+    .w{font:700 54px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:6px;fill:#e8f1f5}
+    .s{font:11px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:3px;fill:#708592}
+    .a{fill:none;stroke:url(#g);stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+    .t{fill:none;stroke:#304b58;stroke-width:2}
+    .n{fill:#0b171f;stroke:#79cde9;stroke-width:3}
+  </style>
+</defs>
+<rect width="900" height="300" rx="24" fill="#070b10"/>
+
+<!-- abstract "drop" as a displaced packet, not a water shape -->
+<g transform="translate(70 52)">
+  <!-- ghosted packet -->
+  <rect x="15" y="15" width="112" height="112" rx="12" fill="#0d1a22" stroke="#41606e" stroke-width="2"/>
+  <path d="M38 52H104M38 72H104M38 92H82" class="t"/>
+  <circle cx="106" cy="42" r="5" fill="#8fe1fa"/>
+  <text x="36" y="113" class="s">DATA</text>
+
+  <!-- dropped trajectory -->
+  <path d="M127 71H180V180" class="a" stroke-dasharray="3 9"/>
+
+  <!-- online node -->
+  <circle cx="180" cy="205" r="25" class="n"/>
+  <circle cx="180" cy="205" r="7" fill="#8fe1fa"/>
+  <path d="M180 180V150M155 205H125M205 205H235" class="t"/>
+  <circle cx="125" cy="205" r="5" fill="#8fe1fa"/>
+  <circle cx="235" cy="205" r="5" fill="#8fe1fa"/>
+</g>
+
+<text x="350" y="122" class="w">DEAD DROP</text>
+<text x="354" y="154" class="s">A PHYSICAL DROP INTO THE ONLINE WORLD</text>
+<path d="M354 185H820" class="t"/>
+<text x="354" y="217" class="s">STORAGE · CONNECTIVITY · CONTROL</text>
+</svg>
