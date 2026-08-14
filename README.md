@@ -1,4 +1,6 @@
-# DEAD DROP
+<p align="center">
+  <img src="assets/dead-drop-wordart.svg" width="760" alt="Dead Drop system status">
+</p>
 
 ### Physical storage. Online, without the friction.
 
@@ -10,9 +12,7 @@
   <strong>A compact ESP32-S3 based storage device designed to make physical storage feel like an online service.</strong>
 </p>
 
-<p align="center">
-  <img src="assets/dead-drop-logo.svg" width="760" alt="Dead Drop system status">
-</p>
+
 
 <p align="center">
   <img src="https://img.shields.io/badge/STATUS-PROTOTYPE-111827?style=flat-square">
